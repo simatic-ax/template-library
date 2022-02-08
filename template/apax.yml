@@ -9,7 +9,7 @@ variables:
 targets:
   - 'axunit-llvm'
 scripts:
-  publishlib:
+  publishpackage:
     - apax publish --package *.apax.tgz --registry 'https://npm.pkg.github.com/'
     - rm *.apax.tgz -f
   createpackage:
