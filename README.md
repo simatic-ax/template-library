@@ -1,14 +1,15 @@
 # Apax Template Package
 
-This is a template package.
+## How to use it
 
-## Get Started
+1. If not done, login to the GitHub registry
 
-- Make sure the package name, excluding the scope, starts with `template-`, for example `@my-scope/template-app`.
-- After publishing, use the template with `apax create @my-scope/app`. Note how the `template-` prefix is omitted.
-- The template contents are located in the `template` directory. An `apax.yml` is provided by default for convenience.
-- Don't forget to update this README with a description of the template before publishing!
+    More information you'll find [here](https://github.com/simatic-ax/.github/blob/main/doc/personalaccesstoken.md)
 
+1. create a new library project from template 
+      ```cli
+      apax create @simatic-ax/tiax --registry https://npm.pkg.github.com
+      ```
 ## Learn More
 
 See the [documentation on custom templates](https://axciteme.siemens.com/docs/apax/templates).
