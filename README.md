@@ -4,7 +4,7 @@
 
 1. If not done, login to the GitHub registry
 
-    More information you'll find [here](https://github.com/simatic-ax/.github/blob/main/doc/personalaccesstoken.md)
+    More information you'll find [here](https://github.com/simatic-ax/.sharedstuff/blob/main/doc/personalaccesstoken.md)
 
 1. create a new library project from template 
       ```cli
