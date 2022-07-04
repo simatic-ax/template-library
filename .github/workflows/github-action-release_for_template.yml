@@ -58,68 +58,6 @@ jobs:
         with:
           name: version
           path: .version
-
-  # build:
-  #   name: "Build apax library"
-  #   runs-on: ubuntu-latest
-  #   needs: versioning
-  #   steps:
-  #     - name: "Clone the library repository"
-  #       uses: actions/checkout@v3
-
-  #     - name: "Clone repository for CI workflows"
-  #       uses: actions/checkout@v3
-  #       with:
-  #         repository: ${{ env.ACTIONS_REPO }}
-  #         token: ${{ secrets.CI_KIT_TOKEN }}
-  #         path: ./actions
-
-  #     - name: "Install apax and dependencies"
-  #       uses: ./actions/.github/actions/setup-apax-runner
-  #       with:
-  #         apax-access-token: ${{ secrets.APAX_TOKEN }}
-
-  #     - name: "Build apax library"
-  #       uses: ./actions/.github/actions/apax-build
-  #       with:
-  #         library-directory: ${{ github.workspace }}
-  #         apax-access-token: ${{ secrets.APAX_TOKEN }}
-
-  #     - name: "Upload artifact"
-  #       uses: actions/upload-artifact@v3
-  #       with:
-  #         name: library-artifact
-  #         path: bin/
-
-  # test:
-  #   name: "Test apax library"
-  #   runs-on: ubuntu-latest
-  #   needs: build
-  #   steps:
-  #     - name: "Clone the library repository"
-  #       uses: actions/checkout@v3
-
-  #     - name: "Clone repository for CI workflows"
-  #       uses: actions/checkout@v3
-  #       with:
-  #         repository: simatic-ax/actions
-  #         token: ${{ secrets.CI_KIT_TOKEN }}
-  #         path: ./actions
-
-  #     - name: "Install apax and dependencies"
-  #       uses: ./actions/.github/actions/setup-apax-runner
-  #       with:
-  #         apax-access-token: ${{ secrets.APAX_TOKEN }}
-
-  #     - name: "Build apax library"
-  #       uses: ./actions/.github/actions/apax-test
-  #       with:
-  #         library-directory: ${{ github.workspace }}
-  #         apax-access-token: ${{ secrets.APAX_TOKEN }}
-
-  #     - name: "Test apax package"
-  #       run: apax test
-
   release:
     name: "Release binary"
     runs-on: ubuntu-latest

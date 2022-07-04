@@ -1,5 +1,5 @@
-name: template-library
-version: 0.0.0
+name: "@simatic-ax/apax-package-name-d7b4b031"
+version: 0.0.0-placeholder
 type: lib
 variables:
   APAX_BUILD_ARGS:
@@ -8,19 +8,9 @@ variables:
     - '--debug'
 targets:
   - 'axunit-llvm'
-scripts:
-  publishpackage:
-    - apax publish --package *.apax.tgz --registry 'https://npm.pkg.github.com/'
-    - rm *.apax.tgz -f
-  createpackage:
-    - apax build
-    - apax test
-    - apax version $1
-    - apax pack
-    # - apax publishlib
 devDependencies:
-  '@ax/sdk': 1.0.144
-  "@simatic-ax/snippetscollection": 0.0.6
+  '@ax/sdk': 1.0.175
+  "@simatic-ax/snippetscollection": 0.0.13
 registries:
   '@simatic-ax': 'https://npm.pkg.github.com/'
 files:
@@ -29,5 +19,3 @@ files:
   - 'doc'
   - 'src'
   - 'snippets'
-
-  
