@@ -26,7 +26,6 @@ jobs:
           path: ./actions
       - name: "Get the latest version of the package"
         run: |
-          rm .npmrc
           echo "@simatic-ax:registry=https://npm.pkg.github.com/" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.CI_KIT_TOKEN }}" >> .npmrc
           echo "always-auth = true" >> .npmrc
