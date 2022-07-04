@@ -44,7 +44,7 @@ If this template is not suitable for you, you can create your own user spcific t
    apax create template template-userspecific
    ```
 
-   > **Important:** It's very important, that the name of the template package starts with `template-` < template-name >
+   > **Important:** It's very important, that the name of the template package starts with `template-` followed by the name of the template (e.g. `template-userspecific`)
 
 1. Open the template workspace with:
 
@@ -91,6 +91,15 @@ If this template is not suitable for you, you can create your own user spcific t
       name: "@simatic-ax/template-userspecific"
       ```
 
+   1. Set URL to GitHub registry
+
+      That the package registry for your scope (in this example it is `@simatic-ax`) is can be found, add the registries section to the apax.yml
+
+      ```sh
+      registries:
+         '@simatic-ax': 'https://npm.pkg.github.com/'
+      ```
+
    1. Define the content for the template
 
       In the file section, in the apax.yml, you can define, what generally will be shipped in a package. For templates, at minimum, the template folder must be shipped. This can be done, by adding the follwoing lines to tha apax.yml
@@ -100,15 +109,6 @@ If this template is not suitable for you, you can create your own user spcific t
       - 'template'
       ```
 
-   1. Set URL to GitHub registry
-
-      That the package registry for your scope (in this example it is `@simatic-ax`) is can be found, add the registries section to the apax.yml
-
-      ```sh
-      registries:
-         '@simatic-ax': 'https://npm.pkg.github.com/'
-      ```
-   
    1. Final apax.yml
 
       
@@ -118,9 +118,9 @@ If this template is not suitable for you, you can create your own user spcific t
       type: lib
       author: Siemens AG
       registries:
-      '@simatic-ax': 'https://npm.pkg.github.com/'
+        '@simatic-ax': 'https://npm.pkg.github.com/'
       files:
-      - 'template'
+        - 'template'
       ```
 
       > In this example, you a template for a libaray (type: lib) will be crated. A list of valid types, you can find here: [valid types](https://console.prod.ax.siemens.cloud/docs/apax/yml#type)
