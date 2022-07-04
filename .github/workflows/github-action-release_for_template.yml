@@ -5,7 +5,7 @@ on:
       - release
 
 env:
-  # PROJECT_NAME: 
+  PROJECT_NAME: template-library
   SCOPE: simatic-ax
   ACTIONS_REPO: simatic-ax/actions
   ACTIONS_LOCAL: ./actions
@@ -18,11 +18,6 @@ jobs:
     steps:
       - name: "Clone the library repository"
         uses: actions/checkout@v3
-      - name: "Store repo name in $PROJECT_NAME"
-        run: |
-          echo "PROJECT_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $1}')" >> $$GITHUB_ENV
-          echo $PROJECT_NAME
-        shell: bash
       - name: "Clone repository for CI workflows"
         uses: actions/checkout@v3
         with:
