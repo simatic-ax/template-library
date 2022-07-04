@@ -15,6 +15,7 @@ See the [documentation on custom templates](https://axciteme.siemens.com/docs/ap
       ```sh
       apax create @simatic-ax/library --registry https://npm.pkg.github.com
       ```
+
       and follow the dialog
 
       alternatively:
@@ -31,10 +32,10 @@ If this template is not suitable for you, you can create your own user spcific t
 
    ![selPath](docs/images/explorer.png)
 
-1. Open a console by entering `cmd` in the address text box
-   
+1. Open a console by entering `cmd + Enter` in the address text box
+
    ![openConsole](docs/images/console.png)
-   
+
    Result: A command line window will be opened
 
 1. Create a new, empty template workspace by entering:
@@ -44,7 +45,6 @@ If this template is not suitable for you, you can create your own user spcific t
    ```
 
    > **Important:** It's very important, that the name of the template package starts with `template-` < template-name >
-
 
 1. Open the template workspace with:
 
@@ -58,15 +58,16 @@ If this template is not suitable for you, you can create your own user spcific t
       ![WSstruct](docs/images/template-structure.png)
 
    1. The apax.yml `(1)` which is the description for the template package
-   
+
    1. The apax.yml in the template folder `(2)` wich belongs to the workspace, which will be created, when you create a workspace from tis template.
-   
-   > The template-folder `(2)` is the folder, which comtains all files and folders for the workspace to be created from this template. 
+
+   > The template-folder `(2)` is the folder, which comtains all files and folders for the workspace to be created from this template.
    > For example, it can contain:
+   >
    > - your individual apax.yml with scrips, variables or common used dependencies
    > - src- and test-folder with example files
    > - a README.md
-   > - a docs folder for further documentation
+   > - a docs folder for further documentation 
 
 1. Modify the default apax.yml `(1)`
 
@@ -80,18 +81,18 @@ If this template is not suitable for you, you can create your own user spcific t
    type: generic
    ```
 
-   1. Scope of the templateon GitHub
-   
-      For GitHub it's important, that the scope is part of the name section. On GitHub, the name of [GitHub organisation](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations) is also the scope.
+   1. Scope of the template on GitHub
+
+      For GitHub it's important, that the scope is part of the name section. On GitHub, the name of your [GitHub organisation](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations) is also the scope.
 
       If your organisation is `simatic-ax`, then the name section in the apax yml must look like:
-      
+
       ```yml
       name: "@simatic-ax/template-userspecific"
       ```
 
    1. Define the content for the template
-   
+
       In the file section, in the apax.yml, you can define, what generally will be shipped in a package. For templates, at minimum, the template folder must be shipped. This can be done, by adding the follwoing lines to tha apax.yml
 
       ```yml
@@ -99,17 +100,33 @@ If this template is not suitable for you, you can create your own user spcific t
       - 'template'
       ```
 
-   1. 
+   1. Set URL to GitHub registry
 
+      That the package registry for your scope (in this example it is `@simatic-ax`) is can be found, add the registries section to the apax.yml
 
-
-1. sdklöfös
- 
-   ösöslkfjsds
-
-3. sdfsdfwd
+      ```sh
+      registries:
+         '@simatic-ax': 'https://npm.pkg.github.com/'
+      ```
    
-   sdfsdfs
+   1. Final apax.yml
+
+      
+      ```yml
+      name: '@simatic-ax/template-library'
+      version: 0.0.0
+      type: lib
+      author: Siemens AG
+      registries:
+      '@simatic-ax': 'https://npm.pkg.github.com/'
+      files:
+      - 'template'
+      ```
+
+      > In this example, you a template for a libaray (type: lib) will be crated. A list of valid types, you can find here: [valid types](https://console.prod.ax.siemens.cloud/docs/apax/yml#type)
+
+      > The author field is optionally
+
 
 ## Learn More
 
