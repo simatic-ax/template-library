@@ -5,6 +5,7 @@ on:
       - release
 
 env:
+  PROJECT_NAME: ci_workflow_library
   SCOPE: simatic-ax
   ACTIONS_REPO: simatic-ax/actions
   ACTIONS_LOCAL: ./actions
@@ -17,15 +18,21 @@ jobs:
     steps:
       - name: "Clone the library repository"
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: "Clone repository for CI workflows"
         uses: actions/checkout@v3
         with:
           repository: ${{ env.ACTIONS_REPO }}
           token: ${{ secrets.CI_KIT_TOKEN }}
           path: ./actions
-
+      - name: "Get the latest version of the package"
+        run: |
+          rm .npmrc
+          echo "@simatic-ax:registry=https://npm.pkg.github.com/" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.CI_KIT_TOKEN }}" >> .npmrc
+          echo "always-auth = true" >> .npmrc
+          cat .npmrc
+          echo "VERSION=$(npm show @${{ env.SCOPE }}/${{ env.PROJECT_NAME }} version --registry=https://npm.pkg.github.com --scope=${{ env.SCOPE }})" >> $GITHUB_ENV
+          echo $VERSION
       - name: "Check contents of actions folder"
         run: tree -d ./actions
       - name: "Install apax and dependencies"
@@ -40,25 +47,18 @@ jobs:
           file: "conventional-commit"
           token: ${{ secrets.CI_KIT_TOKEN }}
 
-      - name: "Get the latest version of the package"
+      - id: bump
+        name: "Bump version"
         run: |
-          echo "_auth=\"${{ secrets.GITHUB_TOKEN }}\" >> .npmrc
-          echo "email="krueger.felix@siemens.com" " >> .npmrc
-          echo "always-auth=true" >> .npmrc
-
-          PACKAGE="$(grep -oP '(?<=\").+.apax\.tgz(?=\")' .package.err)"
-          npm login --scope=@${{ env.SCOPE }} --registry=https://npm.pkg.github.com
-          npm show @${{ env.SCOPE }}/$PACKAGE version
-
-      - name: "Bump version"
-        run: |
-          ls -a
-          pwd
+          apax version ${{ env.VERSION }}
           sudo chmod +x ./conventional-commit
-          sudo ./conventional-commit \
-          --commit-message "${{ github.event.head_commit.message }}" \
-          --path . \
-          --update \
+          ./conventional-commit -c "${{ github.event.head_commit.message }}" -v "${{ env.VERSION }}" >> .version
+          cat .version
+      - name: "Upload version"
+        uses: actions/upload-artifact@v3
+        with:
+          name: version
+          path: .version
 
   # build:
   #   name: "Build apax library"
@@ -81,7 +81,7 @@ jobs:
   #         apax-access-token: ${{ secrets.APAX_TOKEN }}
 
   #     - name: "Build apax library"
-  #       uses: ./ax_ci_workflows/.github/actions/build-apax
+  #       uses: ./actions/.github/actions/apax-build
   #       with:
   #         library-directory: ${{ github.workspace }}
   #         apax-access-token: ${{ secrets.APAX_TOKEN }}
@@ -103,17 +103,17 @@ jobs:
   #     - name: "Clone repository for CI workflows"
   #       uses: actions/checkout@v3
   #       with:
-  #         repository: kruegerfelix/ax_ci_workflows
+  #         repository: simatic-ax/actions
   #         token: ${{ secrets.CI_KIT_TOKEN }}
-  #         path: ax_ci_workflows
+  #         path: ./actions
 
   #     - name: "Install apax and dependencies"
-  #       uses: ./ax_ci_workflows/.github/actions/setup-apax-runner
+  #       uses: ./actions/.github/actions/setup-apax-runner
   #       with:
   #         apax-access-token: ${{ secrets.APAX_TOKEN }}
 
   #     - name: "Build apax library"
-  #       uses: ./ax_ci_workflows/.github/actions/build-apax
+  #       uses: ./actions/.github/actions/apax-test
   #       with:
   #         library-directory: ${{ github.workspace }}
   #         apax-access-token: ${{ secrets.APAX_TOKEN }}
@@ -132,12 +132,12 @@ jobs:
       - name: "Clone repository for CI workflows"
         uses: actions/checkout@v3
         with:
-          repository: kruegerfelix/ax_ci_workflows
+          repository: simatic-ax/actions
           token: ${{ secrets.CI_KIT_TOKEN }}
-          path: ax_ci_workflows
+          path: ./actions
 
       - name: "Install apax and dependencies"
-        uses: ./ax_ci_workflows/.github/actions/setup-apax-runner
+        uses: ./actions/.github/actions/setup-apax-runner
         with:
           apax-access-token: ${{ secrets.APAX_TOKEN }}
 
@@ -151,9 +151,15 @@ jobs:
           apax login \
           --registry "https://npm.pkg.github.com" \
           --password ${{ secrets.CI_KIT_TOKEN }}
+      - name: "Download artifact"
+        uses: actions/download-artifact@v3
+        with:
+          name: version
 
       - name: "Pack and publish the library"
         run: |
+          cat .version
+          apax version "$(cat .version)"
           apax pack 2>.package.err 1>.signature
           PACKAGE="$(grep -oP '(?<=\").+.apax\.tgz(?=\")' .package.err)"
           apax publish --package $PACKAGE --registry https://npm.pkg.github.com
