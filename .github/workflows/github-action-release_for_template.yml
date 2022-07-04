@@ -19,7 +19,9 @@ jobs:
       - name: "Clone the library repository"
         uses: actions/checkout@v3
       - name: "Store repo name in $PROJECT_NAME"
-        run: echo "PROJECT_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $1}')" >> $GITHUB_ENV
+        run: |
+          echo "PROJECT_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $1}')" >> $PROJECT_NAME
+          echo $PROJECT_NAME
         shell: bash
       - name: "Clone repository for CI workflows"
         uses: actions/checkout@v3
