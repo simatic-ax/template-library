@@ -11,3 +11,4 @@
 - remove all scripts becaus of automated ci workflow
 - add the [magic string](https://console.prod.ax.siemens.cloud/docs/apax/templates#string-replacements) to apax.yml
 - version place holder --> will always be repalced in the ci pipeline
+
