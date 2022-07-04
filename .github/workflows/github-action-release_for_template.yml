@@ -5,7 +5,7 @@ on:
       - release
 
 env:
-  PROJECT_NAME: ci_workflow_library
+  PROJECT_NAME: template-library
   SCOPE: simatic-ax
   ACTIONS_REPO: simatic-ax/actions
   ACTIONS_LOCAL: ./actions
