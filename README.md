@@ -8,8 +8,9 @@
 
 1. create a new library project from template 
       ```cli
-      apax create @simatic-ax/library --registry https://npm.pkg.github.com
+      apax create @simatic-ax/library --registry https://npm.pkg.github.com <Workspace Name>
       ```
+
 ## Learn More
 
 See the [documentation on custom templates](https://axciteme.siemens.com/docs/apax/templates).
