@@ -2,7 +2,7 @@
 
 ## What is a template
 
-See the [documentation on custom templates](https://axciteme.siemens.com/docs/apax/templates).
+See the [documentation on custom templates](https://console.simatic-ax.siemens.io/docs/apax/templates).
 
 ## How to use it
 
@@ -56,13 +56,13 @@ If this template is not suitable for you, you can create your own user specific 
    ```
 
    Result:
-   AX Coder is opened and you an see the following workspace structure which consists of:
+   AX Code is opened and you an see the following workspace structure which consists of:
 
       ![WSstruct](docs/images/template-structure.png)
 
    1. The apax.yml `(1)` which is the description for the template package
 
-   1. The apax.yml in the template folder `(2)` which belongs to the workspace, which will be created, when you create a workspace from tis template.
+   1. The apax.yml in the template folder `(2)` which belongs to the workspace, which will be created, when you create a workspace from this template.
 
    > The template-folder `(2)` is the folder, which contains all files and folders for the workspace to be created from this template.
    > For example, it can contain:
@@ -125,13 +125,13 @@ If this template is not suitable for you, you can create your own user specific 
         - 'template'
       ```
 
-      > In this example, you a template for a library (type: lib) will be crated. A list of valid types, you can find here: [valid types](https://console.prod.ax.siemens.cloud/docs/apax/yml#type)
+      > In this example, you a template for a library (type: lib) will be crated. A list of valid types, you can find here: [valid types](https://console.simatic-ax.siemens.io/docs/apax/yml#type)
       >
       > The author field is optionally
 
    1. Learn More abut the apax.yml
 
-      [Manifest (apax.yml) Reference](https://console.prod.ax.siemens.cloud/docs/apax/yml)
+      [Manifest (apax.yml) Reference](https://console.simatic-ax.siemens.io/docs/apax/yml)
 
 ### Prepare GitHub for your template package
 
@@ -175,7 +175,7 @@ If this template is not suitable for you, you can create your own user specific 
 
    1. Create the template package
 
-      ```
+      ```sh
       apax pack
       ```
 
@@ -185,9 +185,9 @@ If this template is not suitable for you, you can create your own user specific 
 
    1. Publish the package on your GitHub registry
 
-      **Important:** If not logged in on GitHub, you've to do it before you can publish a package. More information you'll find [here](https://github.com/simatic-ax/.sharedstuff/blob/main/doc/personalaccesstoken.md)
+      **Important:** If not logged in on GitHub, you've to do it before you can publish a package. More information you'll find [here](https://github.com/simatic-ax/.github-private/blob/main/doc/personalaccesstoken.md)
 
-      ```
+      ```sh
       apax publish --registry https://npm.pkg.github.com --package simatic-ax-template-library-0.0.1.apax.tgz
       ```
 
@@ -203,8 +203,8 @@ If this template is not suitable for you, you can create your own user specific 
       files:
       - 'template'
       scripts:
-      publishlib:
-         apax publish --registry https://npm.pkg.github.com --package *.apax.tgz
+        publishlib:
+          apax publish --registry https://npm.pkg.github.com --package *.apax.tgz
       ```
 
       and call the script with
