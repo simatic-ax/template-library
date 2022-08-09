@@ -215,7 +215,16 @@ If this template is not suitable for you, you can create your own user specific 
 
       The template is published and ready to use
 
-### Create a workspace from your template
+### Update template
+
+When your template has been changed for any reasons, it is necessary to update the template-package and publish it again. Since it is not possible to overwrite an existing package with the same version on the GitHub package registry, you need to create a new version with:
+
+```sh
+apax version <new version>
+```
+
+
+### Create a project from your template
 
 1. Go to the folder, where your workspace should be created and open a command line interface (or navigate via command line interface to your destination folder)
 
@@ -227,13 +236,6 @@ If this template is not suitable for you, you can create your own user specific 
 
    >Note: the when you create a workspace from a template, the prefix `template-` must not be used.
 
-## Update template
-
-When your template has been changed for any reasons, it is necessary to update the template-package and publish it again. Since it is not possible to overwrite an existing package with the same version on the GitHub package registry, you need to create a new version with:
-
-```sh
-apax version <new version>
-```
 
 After this you need to pack and publish the package again (see `Create the template package` point 2 and 3)
 
