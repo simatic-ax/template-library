@@ -9,8 +9,8 @@ variables:
 targets:
   - 'axunit-llvm'
 devDependencies:
-  '@ax/sdk': 2.0.4
-  "@simatic-ax/snippetscollection": 0.0.13
+  '@ax/sdk': 3.0.2
+  "@simatic-ax/snippetscollection": 0.0.14
 registries:
   '@simatic-ax': 'https://npm.pkg.github.com/'
 files:
