@@ -1,18 +1,32 @@
+# General information
 name: "@simatic-ax/apax-package-name-d7b4b031"
 version: 0.0.0-placeholder
+author: Siemens AG
+# Description will be displayed in the apax extension
+description: <add your description here, which will be shown in the apax extension>
 type: lib
+#URL to the repository
+repository:
+  type: git
+  url: https://github.com/simatic-ax/apax-package-name-d7b4b031
+# Environment variables
 variables:
   APAX_BUILD_ARGS:
     - '--log Trace'
     - '--simulation'
     - '--debug'
 targets:
+  - '1500'
   - 'axunit-llvm'
+  - 'llvm'
+# Dependencies
 devDependencies:
   '@ax/sdk': 3.0.2
   "@simatic-ax/snippetscollection": 0.0.14
+# Registry information, where the package will be published
 registries:
   '@simatic-ax': 'https://npm.pkg.github.com/'
+# Files, which will be shipped with the library
 files:
   - 'README.md'
   - 'LICENSE.md'
