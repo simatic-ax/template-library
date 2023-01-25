@@ -8,7 +8,7 @@ See the [documentation on custom templates](https://console.simatic-ax.siemens.i
 
 1. If not done, login to the GitHub registry
 
-    More information you'll find [here](https://github.com/simatic-ax/.sharedstuff/blob/main/doc/personalaccesstoken.md)
+    More information you'll find [here](https://github.com/simatic-ax/.github/blob/main/docs/personalaccesstoken.md)
 
 1. Create a new library project from template from CLI
 
@@ -27,7 +27,6 @@ See the [documentation on custom templates](https://console.simatic-ax.siemens.i
 ## Create own templates on GitHub
 
 If this template is not suitable for you, you can create your own user specific templates. This describes, how a template for GitHub is created. For other Git provider it might be similar, but each Git provider has its own specific properties.
-
 
 ### Setup template workspace
 
@@ -155,7 +154,7 @@ If this template is not suitable for you, you can create your own user specific 
       git push -u origin main
       ```
 
-      Result: now your template is also available on GitHub 
+      Result: now your template is also available on GitHub
 
 ### Create the template package
 
@@ -163,9 +162,9 @@ If this template is not suitable for you, you can create your own user specific 
 
    1. Create the package version
 
-      ```
+      ```iec-st
       apax version 0.0.1
-      ````
+      ```
 
       Result in apax.yml
 
@@ -223,7 +222,6 @@ When your template has been changed for any reasons, it is necessary to update t
 apax version <new version>
 ```
 
-
 ### Create a project from your template
 
 1. Go to the folder, where your workspace should be created and open a command line interface (or navigate via command line interface to your destination folder)
@@ -235,7 +233,6 @@ apax version <new version>
    ```
 
    >Note: the when you create a workspace from a template, the prefix `template-` must not be used.
-
 
 After this you need to pack and publish the package again (see `Create the template package` point 2 and 3)
 
