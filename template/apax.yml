@@ -12,8 +12,6 @@ repository:
 # Environment variables
 variables:
   APAX_BUILD_ARGS:
-    - '--log Trace'
-    - '--simulation'
     - '--debug'
 targets:
   - '1500'
