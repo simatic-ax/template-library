@@ -6,10 +6,11 @@ on:
 
 jobs:
   release-apax-lib:
-    uses: simatic-ax/actions/.github/workflows/apax-publish-template.yml@stable
+    uses: simatic-ax/actions/.github/workflows/apax-publish.yml@stable
     secrets:
       APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
       DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
 
     with:
       VERSION: ${{ github.ref_name }}
+      RUN_BUILD: false
