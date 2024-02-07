@@ -15,7 +15,6 @@ variables:
     - '--debug'
 targets:
   - '1500'
-  - 'axunit-llvm'
   - 'llvm'
 # Dependencies
 devDependencies:
@@ -31,3 +30,5 @@ files:
   - 'doc'
   - 'src'
   - 'snippets'
+installStrategy: strict
+apaxVersion: 3.1.0
