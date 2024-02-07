@@ -14,3 +14,4 @@ jobs:
 
     with:
       VERSION: ${{ github.ref_name }}
+      RUN_BUILD: false
