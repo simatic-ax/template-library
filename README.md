@@ -1,242 +1,171 @@
-# Apax Template Package
+# Template for `Libraries` on GitHub
 
-## What is a template
+## What is an library
 
-See the [documentation on custom templates](https://console.simatic-ax.siemens.io/docs/apax/templates).
+A library is a standalone project, which offers a collection of prewritten and tested code-elements that other users can reuse to optimize theire tasks. This template is tailored for the creation of libraries for PLC applications (executable on a PLCSIM Advanced or real PLC S7-1500).
 
-## How to use it
+## Create a project from this "apax-template"
 
-1. If not done, login to the GitHub registry
+If you want to create a new Github library in this community please start with using this apax-template by entering the following in the terminal :
+
+```bash
+apax create @simatic-ax/library --registry https://npm.pkg.github.com
+```
+
+## Folder-structure of this "library" apax-template
+
+```bash
+library
+ |
+ +- .github
+ |      | # default GitHub workflows any gh-community-scope lib-repo should have (ignore)
+ |      +- build-library.yml
+ |      +- lint-repo.yml
+ |      +- release-library.yml
+ |
+ +- docs
+ |    | # the place for additional user-documentation
+ |    +- MyClass.md
+ |
+ +- src
+ |   | # adjust and add library src files here
+ |   +- myClass.st
+ |
+ +- test
+ |   | # adjust and add test-programs here
+ |    +- test.st
+ |
+ | # additional meta-information for GitHub/-workflows (ignore)
+ +- .gitattributes
+ +- .gitignore
+ +- .markdownlint.yml
+ | # adjust the project description file / add apax-scripts
+ +- apax.yml
+ | # essential git project files, pls. adjust
+ +- CODEOWNERS
+ +- README.md
+ +- LICENSE.md 
+```
+
+## Create a `library` repository with this apax-template on GitHub
+
+Step-by-step instructions: for creating & releasing `mylibrary` (case example)
+
+1. Create a repository `mylibrary` on GitHub
+
+    This repository is tailored to be in sync with your local git-repository which holds on to your actual library program.
+
+    Purpose: Later people can create local clones/ forks from the repository and all its files. This repository is also the storage place for the apax-package, which other apax/npm users can install. The creation of that package is described in an other chapter.
+
+    ![newrepo](docs/images/newrepo.png)
+
+    ![reponame](docs/images/reponame.png)
+
+    - For the actual "Repository name" try to use a short name or a abbreviation.
+    - As "Description" please start with `Library for ...`.
+    - If "public" or "private" depends on internal decisions.
+
+2. Add the secrets to the repository (only in the case if it's private)
+
+    ![secrets](docs/images/secrets.png)
+
+   > You don't know the secrets? Ask one of the owners or `@sjuergen`
+
+3. Initiate your local repository
+
+   Once this is done the remote crepository on GitHub is ready to receive the library from your local Git repository.
+
+   Therefore follow the steps below on your local system by navigating to your desired project directory for the library. Open the terminal.
+
+4. If not done yet, login to the GitHub registry first
+
+    ```bash
+    apax login --registry https://npm.pkg.github.com/
+    ```
+
+    Follow the instruction and type in your credentials.
 
     More information you'll find [here](https://github.com/simatic-ax/.github/blob/main/docs/personalaccesstoken.md)
 
-1. Create a new library project from template from CLI
+5. Create a new project based on the GitHub library apax-template
 
-      ```sh
-      apax create @simatic-ax/library --registry https://npm.pkg.github.com
+    After a successful login you can follow-up with entering:
+
+    ```bash
+    apax create @simatic-ax/library --registry https://npm.pkg.github.com mylibrary
+    ```
+
+    Here: the library will be named "mylibrary" and the project-folder now is predefined with the templates contents.
+
+6. Connect the previous created remote GitHub repository to your local Git repository
+
+    A apax "create" command will always initiate a local Git repository. This one must be synced  with the "simatic-ax/mylibrary" GitHub repository now.
+
+    ```bash
+    git remote add origin git@github.com:simatic-ax/mylibrary.git
+    ```
+
+    ```bash
+    git push -u origin main
+    ```
+
+7. Install the project dependencies
+
+      ```bash
+      apax install
       ```
 
-      and follow the dialog
+8. Optionally update its dependencies
 
-      alternatively you can add the project name:
-
-      ```sh
-      apax create @simatic-ax/library --registry https://npm.pkg.github.com <name of the project>
+      ```bash
+      apax update
       ```
 
-## Create own templates on GitHub
+9. Now you can implement the library contents
 
-If this template is not suitable for you, you can create your own user specific templates. This describes, how a template for GitHub is created. For other Git provider it might be similar, but each Git provider has its own specific properties.
+    Open the project-folder with AX-Code and start adjusting the files to fit your library. Consider using Git branches and frequent commits in order to keep track of your changes.
+    Don't forget to sync your local changes with the git-remote repository on GitHub at some point.
 
-### Setup template workspace
+### Before releasing
 
-1. Select your target path. In this example, it is shown with the Windows Explorer
+Before you release the application example, all checks have to be done:
 
-   ![selPath](docs/images/explorer.png)
+- [ ] OSS Clearing
+- [ ] Patent Clearing
+- [ ] ECC (Export control with the [ecc wizzard](https://code-ops.code.siemens.io/ecc-wizard/))
+- [ ] License is up to date
+- [ ] Codeowner are up to date
+- [ ] The Readme.md contains a description:
+  - What is this library doing ?
+  - How to install the library
+  - How to use the library
+- [ ] Library has been reviewed
+  - Create an MergeRequest for your Main-branch and add community-admins as reviewer
 
-1. Open a console by entering `cmd + Enter` in the address text box
+### Release of the library
 
-   ![openConsole](docs/images/console.png)
+Successfully releasing your library will trigger the creation of an apax-package of your current repository. Depending on the used workflows the repository may have to succeed linter and other checks in order to do so. Be aware of failing pipelines (GitHub workflows).
 
-   Result: A command line window will be opened
+Draft a new "Release"-tag within your GitHub repository
 
-1. Create a new, empty template workspace by entering:
+- choose an appropriate version tag
+- choose an appropriate release-title
+- let github generate release-notes
+- publish release
 
-   ```sh
-   apax create template template-userspecific
-   ```
+![release1](docs/images/release1.png)
+![release2](docs/images/release2.png)
+![release3](docs/images/release3.png)
 
-   > **Important:** It's very important, that the name of the template package starts with `template-` followed by the name of the template (e.g. `template-userspecific`)
+> This action may only can be performed by one of the community-admins.  
 
-1. Open the template workspace with:
+## Congratulations 🐱‍🏍
 
-   ```sh
-   axcode template-userspecific
-   ```
+You finally contributed to the simatic-ax community offering apax-packages for everyone by simply using apax.
 
-   Result:
-   AX Code is opened and you an see the following workspace structure which consists of:
+KEEP GOING 🐱‍💻!
 
-      ![WSstruct](docs/images/template-structure.png)
-
-   1. The apax.yml `(1)` which is the description for the template package
-
-   1. The apax.yml in the template folder `(2)` which belongs to the workspace, which will be created, when you create a workspace from this template.
-
-   > The template-folder `(2)` is the folder, which contains all files and folders for the workspace to be created from this template.
-   > For example, it can contain:
-   >
-   > - your individual apax.yml with scrips, variables or common used dependencies
-   > - src- and test-folder with example files
-   > - a README.md
-   > - a docs folder for further documentation
-
-### Modify the apax.yml `(1)`
-
-   The default apax.yml is not suitable to publish your package on a GitHub registry.
-
-   Default apax.yml
-
-   ```yml
-   name: "template-userspecific"
-   version: 0.0.0
-   type: generic
-   ```
-
-   1. Scope of the template on GitHub
-
-      For GitHub it's important, that the scope is part of the name section. On GitHub, the name of your [GitHub organization](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations) is also the scope.
-
-      If your organization is `simatic-ax`, then the name section in the apax yml must look like:
-
-      ```yml
-      name: "@simatic-ax/template-userspecific"
-      ```
-
-   1. Define URL for the scope `@simatic-ax`
-
-      Add the registries section to the apax.yml
-
-      ```sh
-      registries:
-         '@simatic-ax': 'https://npm.pkg.github.com/'
-      ```
-
-   1. Define the content for the template
-
-      In the file section, in the apax.yml, you can define, what generally will be shipped in a package. For templates, at minimum, the template folder must be shipped. This can be done, by adding the following lines to tha apax.yml
-
-      ```yml
-      files:
-      - 'template'
-      ```
-
-   1. Final apax.yml
-
-      ```yml
-      name: '@simatic-ax/template-library'
-      version: 0.0.0
-      type: lib
-      author: Siemens AG
-      registries:
-        '@simatic-ax': 'https://npm.pkg.github.com/'
-      files:
-        - 'template'
-      ```
-
-      > In this example, you a template for a library (type: lib) will be crated. A list of valid types, you can find here: [valid types](https://console.simatic-ax.siemens.io/docs/apax/yml#type)
-      >
-      > The author field is optionally
-
-   1. Learn More abut the apax.yml
-
-      [Manifest (apax.yml) Reference](https://console.simatic-ax.siemens.io/docs/apax/yml)
-
-### Prepare GitHub for your template package
-
-   1. Go to your organization on GitHub
-
-   1. Create a new repository
-
-      ![repo](docs/images/createrepo.png)
-
-   1. Enter exactly the name of your template in the field `Repository name`. In this example it is `template-library` and click on `Create repository`
-
-      ![reponame](docs/images/reponame.png)
-
-   1. Add the remote repository on GitHub to your local repository (optionally)
-
-      ```sh
-      git add *
-      git commit -m "first commit"
-      git branch -M main
-      git remote add origin git@github.com:simatic-ax/template-library.git
-      git push -u origin main
-      ```
-
-      Result: now your template is also available on GitHub
-
-### Create the template package
-
-   Since the repository `template-library` is available on GitHub, you can continue publishing your package on the GitHub registry.
-
-   1. Create the package version
-
-      ```iec-st
-      apax version 0.0.1
-      ```
-
-      Result in apax.yml
-
-      ```yml
-      version: 0.0.1
-      ```
-
-   1. Create the template package
-
-      ```sh
-      apax pack
-      ```
-
-      Result: The package file `simatic-ax-template-library-0.0.1.apax.tgz` has been created
-
-      ![pack](docs/images/package.png)
-
-   1. Publish the package on your GitHub registry
-
-      **Important:** If not logged in on GitHub, you've to do it before you can publish a package. More information you'll find [here](https://github.com/simatic-ax/.github-private/blob/main/doc/personalaccesstoken.md)
-
-      ```sh
-      apax publish --registry https://npm.pkg.github.com --package simatic-ax-template-library-0.0.1.apax.tgz
-      ```
-
-      alternatively you can add a script `publishlib` to the apax.yml
-
-      ```yml
-      name: '@simatic-ax/template-library'
-      version: 0.0.1
-      type: lib
-      author: Siemens AG
-      registries:
-      '@simatic-ax': 'https://npm.pkg.github.com/'
-      files:
-      - 'template'
-      scripts:
-        publishlib:
-          apax publish --registry https://npm.pkg.github.com --package *.apax.tgz
-      ```
-
-      and call the script with
-
-      ```sh
-      apax publishlib
-      ```
-
-      The template is published and ready to use
-
-### Update template
-
-When your template has been changed for any reasons, it is necessary to update the template-package and publish it again. Since it is not possible to overwrite an existing package with the same version on the GitHub package registry, you need to create a new version with:
-
-```sh
-apax version <new version>
-```
-
-### Create a project from your template
-
-1. Go to the folder, where your workspace should be created and open a command line interface (or navigate via command line interface to your destination folder)
-
-1. Enter the command
-
-   ```sh
-   apax create @simatic-ax/library --registry https://npm.pkg.github.com
-   ```
-
-   >Note: the when you create a workspace from a template, the prefix `template-` must not be used.
-
-After this you need to pack and publish the package again (see `Create the template package` point 2 and 3)
-
-> An existing version on the GitHub registry can't be overwritten. If you try it, then apax publish will create an error message.
+> BE AWARE: Only successful GitHub workflows (pipelines) will create the package at our GitHub package-registry (scope:@simatic-ax).  
 
 ## Learn More
 

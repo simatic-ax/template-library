@@ -1,4 +1,4 @@
-NAMESPACE Simatic.Ax.Library
+NAMESPACE Simatic.Ax.apax-package-name-d7b4b031
     
     {axcode:docs-v0:@simatic-ax/apax-package-name-d7b4b031:MyClass.md}
     CLASS MyClass

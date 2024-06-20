@@ -1,6 +1,7 @@
 USING AxUnit.Assert;
 
-NAMESPACE Simatic.Ax.Library
+NAMESPACE Simatic.Ax.apax-package-name-d7b4b031
+
     {TestFixture}
     CLASS MyTestFixture
         {Test}
@@ -8,4 +9,5 @@ NAMESPACE Simatic.Ax.Library
             ; // AxUnit.Assert.Equal(expected := y, actual := x);
         END_METHOD
     END_CLASS
+
 END_NAMESPACE
