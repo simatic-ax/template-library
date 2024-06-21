@@ -9,26 +9,33 @@ type: lib
 repository:
   type: git
   url: https://github.com/simatic-ax/apax-package-name-d7b4b031
-# Environment variables
+# Targets which will be compiled with 'apax build'
+targets:
+  - "1500"
+  - "llvm"
+
+# Registry information, to other npm-registries where Apax packages are located
+registries:
+  '@simatic-ax': 'https://npm.pkg.github.com/'
+# Install settings
+installStrategy: strict
+apaxVersion: 3.2.1
+# Dependencies
+devDependencies:
+  '@ax/sdk': 2405.0.0
+  "@simatic-ax/snippetscollection": 1.0.0
+dependencies:
+  "@ax/system": 7.0.17 # this is an example lib-dependency for your code, pls. adjust
+
+# Project variables
 variables:
   APAX_BUILD_ARGS:
     - '--debug'
-targets:
-  - '1500'
-  - 'llvm'
-# Dependencies
-devDependencies:
-  '@ax/sdk': 2311.0.1
-  "@simatic-ax/snippetscollection": 1.0.0
-# Registry information, where the package will be published
-registries:
-  '@simatic-ax': 'https://npm.pkg.github.com/'
+
 # Files, which will be shipped with the library
 files:
   - 'README.md'
   - 'LICENSE.md'
-  - 'doc'
+  - 'docs'
   - 'src'
   - 'snippets'
-installStrategy: strict
-apaxVersion: 3.1.0
