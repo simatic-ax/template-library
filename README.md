@@ -18,14 +18,19 @@ apax create @simatic-ax/library --registry https://npm.pkg.github.com
 library
  |
  +- .github
- |      | # default GitHub workflows any gh-community-scope lib-repo should have (ignore)
- |      +- build-library.yml
- |      +- lint-repo.yml
- |      +- release-library.yml
+ |   | # default GitHub workflows any gh-community-scope lib-repo should have (ignore)
+ |   +- build-library.yml
+ |   +- lint-repo.yml
+ |   +- release-library.yml
+ |
+  +- snippets
+ |   | # adjust and add user-defined vscode snippets
+ |   +- namespacesupport.json
+ |   +- usingNamespace.json
  |
  +- docs
- |    | # the place for additional user-documentation
- |    +- MyClass.md
+ |   | # the place for additional user-documentation
+ |   +- MyClass.md
  |
  +- src
  |   | # adjust and add library src files here
@@ -33,7 +38,7 @@ library
  |
  +- test
  |   | # adjust and add test-programs here
- |    +- test.st
+ |   +- test.st
  |
  | # additional meta-information for GitHub/-workflows (ignore)
  +- .gitattributes
@@ -42,9 +47,10 @@ library
  | # adjust the project description file / add apax-scripts
  +- apax.yml
  | # essential git project files, pls. adjust
+ +- CHANGELOG.md
  +- CODEOWNERS
  +- README.md
- +- LICENSE.md 
+ +- LICENSE.md #do not change!
 ```
 
 ## Create a `library` repository with this apax-template on GitHub
