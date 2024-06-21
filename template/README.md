@@ -1,4 +1,4 @@
-# apax-package-name-d7b4b031
+# @simatic-ax/apax-package-name-d7b4b031
 
 ## Namespace
 
