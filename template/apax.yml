@@ -24,8 +24,6 @@ apaxVersion: 3.2.1
 devDependencies:
   '@ax/sdk': 2405.0.0
   "@simatic-ax/snippetscollection": 1.0.0
-dependencies:
-  "@ax/system": 7.0.17 # this is an example lib-dependency for your code, pls. adjust
 
 # Project variables
 variables:
