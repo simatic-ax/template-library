@@ -47,7 +47,6 @@ library
  | # adjust the project description file / add apax-scripts
  +- apax.yml
  | # essential git project files, pls. adjust
- +- CHANGELOG.md
  +- CODEOWNERS
  +- README.md
  +- LICENSE.md #do not change!
