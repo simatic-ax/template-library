@@ -46,6 +46,8 @@ library
  +- .markdownlint.yml
  | # adjust the project description file / add apax-scripts
  +- apax.yml
+ | # settings file for activate of renovate
+ +- renovate.json
  | # essential git project files, pls. adjust
  +- CODEOWNERS
  +- README.md
