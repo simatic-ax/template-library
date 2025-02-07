@@ -147,7 +147,7 @@ Before you release the application example, all checks have to be done:
   - How to install the library
   - How to use the library
 - [ ] Library has been reviewed
-  - Create an MergeRequest for your Main-branch and add community-admins as reviewer
+  - Create an Pull-Request for your Main-branch and add community-admins as reviewer
 
 ### Release of the library
 
