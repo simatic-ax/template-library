@@ -1,8 +1,8 @@
-# Template for `Libraries` on GitHub
+# Template for SIMATIC AX `libraries` on GitHub
 
 ## What is an library
 
-A library is a standalone project, which offers a collection of prewritten and tested code-elements that other users can reuse to optimize theire tasks. This template is tailored for the creation of libraries for PLC applications (executable on a PLCSIM Advanced or real PLC S7-1500).
+In computing, a library is a collection of resources that is leveraged during software development to implement an application. Commonly, a library consists of executable code such as compiled functions and classes, or a library can be a collection of source code. This template is tailored for the creation of libraries for PLC applications (executable on a PLCSIM Advanced or real PLC S7-1500).
 
 ## Create a project from this "apax-template"
 
@@ -19,9 +19,9 @@ library
  |
  +- .github
  |   | # default GitHub workflows any gh-community-scope lib-repo should have (ignore)
- |   +- build-library.yml
- |   +- lint-repo.yml
- |   +- release-library.yml
+ |   +- package-development-workflow.yml
+ |   +- package-release-workflow.yml
+ |
  |
   +- snippets
  |   | # adjust and add user-defined vscode snippets
@@ -43,7 +43,7 @@ library
  | # additional meta-information for GitHub/-workflows (ignore)
  +- .gitattributes
  +- .gitignore
- +- .markdownlint.yml
+ |
  | # adjust the project description file / add apax-scripts
  +- apax.yml
  | # settings file for activate of renovate
@@ -151,7 +151,7 @@ Before you release the application example, all checks have to be done:
 
 ### Release of the library
 
-Successfully releasing your library will trigger the creation of an apax-package of your current repository. Depending on the used workflows the repository may have to succeed linter and other checks in order to do so. Be aware of failing pipelines (GitHub workflows).
+Successfully releasing your library will trigger the creation of an apax-package of your current repository. Be aware of failing pipelines (GitHub workflows).
 
 Draft a new "Release"-tag within your GitHub repository
 
@@ -162,9 +162,7 @@ Draft a new "Release"-tag within your GitHub repository
 
 ![release1](docs/images/release1.png)
 ![release2](docs/images/release2.png)
-![release3](docs/images/release3.png)
-
-> This action may only can be performed by one of the community-admins.  
+![release3](docs/images/release3.png)  
 
 ## Congratulations 🐱‍🏍
 
