@@ -6,7 +6,7 @@ In computing, a library is a collection of resources that is leveraged during so
 
 ## Create a project from this "apax-template"
 
-If you want to create a new Github library in this community please start with using this apax-template by entering the following in the terminal :
+If you want to create a new GitHub library in this community please start with using this apax-template by entering the following in the terminal :
 
 ```bash
 apax create @simatic-ax/library --registry https://npm.pkg.github.com
