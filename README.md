@@ -170,7 +170,9 @@ You finally contributed to the simatic-ax community offering apax-packages for e
 
 KEEP GOING 🐱‍💻!
 
-> BE AWARE: Only successful GitHub workflows (pipelines) will create the package at our GitHub package-registry (scope:@simatic-ax).  
+> BE AWARE: Only successful GitHub workflows (pipelines) will create the package at our GitHub package-registry (scope:@simatic-ax).
+
+<Remove>
 
 ## Learn More
 
