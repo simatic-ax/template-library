@@ -2,13 +2,6 @@ name: '@simatic-ax/template-library'
 version: 0.0.0-placeholder
 type: generic
 author: Siemens AG
-scripts:
-  publishpackage:
-    - apax publish --package *.apax.tgz --registry 'https://npm.pkg.github.com/'
-    - rm *.apax.tgz -f
-  createpackage:
-    - apax version $1
-    - apax pack
 registries:
   '@simatic-ax': 'https://npm.pkg.github.com/'
 files:

@@ -1,6 +1,4 @@
 # This workflow is going to be used during the development phase of the project
-# The workflow builds and tests the the sources on the following triggers:
-#   - once a change is pushed to the main branch or any of its sub-branches
 name: Library development workflow
 
 on:
@@ -59,7 +57,7 @@ jobs:
       - name: Check links
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
-          modifiedFilesOnly: true
+          check-modified-files-only: 'yes'
 
       - name: Upload build artifacts
         if: ${{ github.event_name == 'workflow_call' || github.event_name == 'release'}}

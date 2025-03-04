@@ -35,7 +35,6 @@ jobs:
         with:
           # checks out the branch that has been selected during the release process
           ref: ${{ github.event.release.target_commitish }}
-          fetch-depth: 0
 
       - name: Version package
         uses: simatic-ax/actions/apax-version@v3
