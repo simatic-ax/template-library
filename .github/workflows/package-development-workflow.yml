@@ -43,4 +43,5 @@ jobs:
       - name: Check links
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
+          base-branch: ${{ github.base_ref }}
           check-modified-files-only: 'yes'
