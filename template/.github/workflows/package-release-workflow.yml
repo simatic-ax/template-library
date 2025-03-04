@@ -8,7 +8,7 @@ on:
     types: [published]
 
 permissions:
-  contents: write    # required for checkout
+  contents: read    # required for checkout
   packages: write    # required for pulling the container
   actions: write     # required for artifact uploading
 
