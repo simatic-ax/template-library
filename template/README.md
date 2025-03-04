@@ -18,8 +18,10 @@ apax add @simatic-ax/apax-package-name-d7b4b031
 Add the namespace in your ST code:
 
 ```iec-st
-Using Simatic.Ax.apax-package-name-d7b4b031;
+Using apax-package-name-d7b4b031;
 ```
+
+## Library functionality
 
 | Classes | Description         |
 |---------|---------------------|
@@ -27,7 +29,7 @@ Using Simatic.Ax.apax-package-name-d7b4b031;
 
 | Functions   | Description             |
 |-------------|-------------------------|
-| *xyz*       | *description for*xyz** |
+| *xyz*       | *description for *xyz** |
 
 | Function Blocks | Description           |
 |-----------------|-----------------------|
@@ -35,7 +37,7 @@ Using Simatic.Ax.apax-package-name-d7b4b031;
 
 ## Contribution
 
-Thanks for your interest in contributing. Anybody is free to report bugs, unclear documentation, and other problems regarding this repository in the Issues section or, even better, is free to propose any changes to this repository using Merge Requests.
+Thanks for your interest in contributing. Anybody is free to report bugs, unclear documentation, and other problems regarding this repository in the Issues section or, even better, is free to propose any changes to this repository using a pull request.
 
 ## License and Legal information
 

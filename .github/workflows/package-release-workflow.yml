@@ -8,7 +8,7 @@ on:
     types: [published]
 
 permissions:
-  contents: write    # required for checkout
+  contents: read     # required for checkout
   packages: write    # required for pulling the container
 
 jobs:
@@ -42,7 +42,7 @@ jobs:
         with:
           version: ${{ github.event.release.tag_name }}
 
-      - name: Package source code
+      - name: Package template
         uses: simatic-ax/actions/apax-pack@v3
         with:
           key: ${{ secrets.APAX_SIGNKEY }}

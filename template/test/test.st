@@ -1,6 +1,6 @@
 USING AxUnit.Assert;
 
-NAMESPACE Simatic.Ax.apax-package-name-d7b4b031
+NAMESPACE apax-package-name-d7b4b031
 
     {TestFixture}
     CLASS MyTestFixture
