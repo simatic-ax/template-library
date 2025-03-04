@@ -174,4 +174,4 @@ KEEP GOING 🐱‍💻!
 
 ## Learn More
 
-See the [documentation on custom templates](https://axciteme.siemens.com/docs/apax/templates).
+See the [documentation on custom templates](https://console.simatic-ax.siemens.io/docs/apax/templates).
