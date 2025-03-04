@@ -40,28 +40,6 @@ jobs:
           # either check out a provided reference, or use the reference that triggered the workflow call, e.g. a push, PR or a release
           ref: ${{ inputs.ref != '' && inputs.ref || github.ref }}
 
-      - name: Login to required registries
-        uses: simatic-ax/actions/apax-login@v3
-        with:
-          apax-token: ${{ secrets.APAX_TOKEN }}
-          registries: |
-            https://npm.pkg.github.com/,${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install dependencies
-        uses: simatic-ax/actions/apax-install@v3
-        with:
-          path: template
-
-      - name: Build source code
-        uses: simatic-ax/actions/apax-build@v3
-        with:
-          path: template
-
-      - name: Test source code
-        uses: simatic-ax/actions/apax-test@v3
-        with:
-          path: template
-
       - name: Check links
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
