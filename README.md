@@ -15,42 +15,53 @@ apax create @simatic-ax/library --registry https://npm.pkg.github.com
 ## Folder-structure of this "library" apax-template
 
 ```bash
-library
- |
- +- .github
- |   | 
- |   +- package-development-workflow.yml
- |   +- package-release-workflow.yml
- |
-  +- snippets
- |   | # adjust and add user-defined vscode snippets
- |   +- namespacesupport.json
- |   +- usingNamespace.json
- |
- +- docs
- |   | # the place for additional user-documentation
- |   +- MyClass.md
- |
- +- src
- |   | # adjust and add library src files here
- |   +- myClass.st
- |
- +- test
- |   | # adjust and add test-programs here
- |   +- test.st
- |
- | # additional meta-information for GitHub/-workflows (ignore)
- +- .gitattributes
- +- .gitignore
- |
- | # adjust the project description file / add apax-scripts
- +- apax.yml
- | # settings file for activate of renovate
- +- renovate.json
- | # essential git project files, pls. adjust
- +- CODEOWNERS
- +- README.md
- +- LICENSE.md #do not change!
++- template-library
+        |     
+        +-- .github
+        |      |  # GitHub workflows for maintaining the template
+        |      |- package-development-workflow.yml
+        |      |- package-release-workflow.yml
+        |
+        +-- template # the content that is going to be installed when using @simatic-ax/app during an apax create
+        |      |
+        |      +- .github
+        |      |   | 
+        |      |   |- package-development-workflow.yml
+        |      |   |- package-release-workflow.yml
+        |      |
+        |      +- docs
+        |      |   | # the place for additional user-documentation
+        |      |   |- app.md
+        |      |
+        |      +- src
+        |      |   | # adjust and add user-programs here
+        |      |   |- Configuration.st
+        |      |   |- MainProgram.st
+        |      |
+        |      +- test
+        |      |   | # adjust and add test-programs here
+        |      |   |- dummy.st
+        |      |
+        |      +- watchlist
+        |      |   | # adjust and add your watchlists here
+        |      |   |- default.mon
+        |      |
+        |      | # additional meta-information for GitHub/-workflows
+        |      |- .gitattributes
+        |      |- .gitignore
+        |      |
+        |      | # settings file for activating the renovate-bot
+        |      |- renovate.json
+        |      |
+        |      | # adjust the project description file / add apax-scripts
+        |      |- apax.yml
+        |      |
+        |      | # essential git project files, pls. adjust
+        |      |- CODEOWNERS
+        |      |- README.md
+        |      |- LICENSE.md #do not change!
+        |
+        |- apax.yml # The project manifest identifying this package as a template
 ```
 
 ## Create a `library` repository with this apax-template on GitHub
