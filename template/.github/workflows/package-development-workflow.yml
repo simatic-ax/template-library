@@ -50,6 +50,8 @@ jobs:
 
       - name: Build source code
         uses: simatic-ax/actions/apax-build@v3
+        with:
+          immutable: true
 
       - name: Test source code
         uses: simatic-ax/actions/apax-test@v3
