@@ -1,12 +1,12 @@
 # Template for SIMATIC AX `libraries` on GitHub
 
-## What is an library
+## What is a library
 
 In computing, a library is a collection of resources that is leveraged during software development to implement an application. Commonly, a library consists of executable code such as compiled functions and classes, or a library can be a collection of source code. This template is tailored for the creation of libraries for PLC applications (executable on a PLCSIM Advanced or real PLC S7-1500).
 
 ## Create a project from this "apax-template"
 
-If you want to create a new GitHub library in this community please start with using this apax-template by entering the following in the terminal :
+If you want to create a new library inside the GitHub community, please start with using this apax-template by entering the following in the terminal:
 
 ```bash
 apax create @simatic-ax/library --registry https://npm.pkg.github.com
@@ -18,10 +18,9 @@ apax create @simatic-ax/library --registry https://npm.pkg.github.com
 library
  |
  +- .github
- |   | # default GitHub workflows any gh-community-scope lib-repo should have (ignore)
+ |   | 
  |   +- package-development-workflow.yml
  |   +- package-release-workflow.yml
- |
  |
   +- snippets
  |   | # adjust and add user-defined vscode snippets
@@ -56,11 +55,11 @@ library
 
 ## Create a `library` repository with this apax-template on GitHub
 
-Step-by-step instructions: for creating & releasing `mylibrary` (case example)
+Step-by-step instructions for creating & releasing `mylibrary` (case example)
 
 1. Create a repository `mylibrary` on GitHub
 
-    This repository is tailored to be in sync with your local git-repository which holds on to your actual library program.
+    This repository is tailored to be in sync with your local git-repository which holds on to your actual library.
 
     Purpose: Later people can create local clones/ forks from the repository and all its files. This repository is also the storage place for the apax-package, which other apax/npm users can install. The creation of that package is described in an other chapter.
 

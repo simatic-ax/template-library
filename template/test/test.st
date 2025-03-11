@@ -1,6 +1,6 @@
 USING AxUnit.Assert;
 
-NAMESPACE Tests
+NAMESPACE apax-package-name-d7b4b031.Tests
     {TestFixture}
     CLASS MyTestFixture
         {Test}

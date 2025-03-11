@@ -1,3 +1,2 @@
-﻿# `.gitattributes` reclassify `.st` files as iec-st:
-** linguist-vendored
-# *.ppjs linguist-language=ST
+﻿# disable linguist detection for ST files
+*.st linguist-detectable=false
