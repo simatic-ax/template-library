@@ -25,26 +25,26 @@ apax create @simatic-ax/library --registry https://npm.pkg.github.com
         +-- template # the content that is going to be installed when using @simatic-ax/app during an apax create
         |      |
         |      +- .github
-        |      |   | 
+        |      |   |  # GitHub workflows for maintaining the library
         |      |   |- package-development-workflow.yml
         |      |   |- package-release-workflow.yml
         |      |
         |      +- docs
         |      |   | # the place for additional user-documentation
-        |      |   |- app.md
+        |      |   |- MyClass.md
+        |      |    
+        |      +- snippets
+        |      |    | # may contain helpful snippets for using the library
+        |      |    |- namespacesupport.json
+        |      |    |- usingNamespace.json
         |      |
         |      +- src
-        |      |   | # adjust and add user-programs here
-        |      |   |- Configuration.st
-        |      |   |- MainProgram.st
+        |      |   | # adjust and add library src files here
+        |      |   |- myClass.st
         |      |
         |      +- test
         |      |   | # adjust and add test-programs here
         |      |   |- dummy.st
-        |      |
-        |      +- watchlist
-        |      |   | # adjust and add your watchlists here
-        |      |   |- default.mon
         |      |
         |      | # additional meta-information for GitHub/-workflows
         |      |- .gitattributes
@@ -63,87 +63,7 @@ apax create @simatic-ax/library --registry https://npm.pkg.github.com
         |
         |- apax.yml # The project manifest identifying this package as a template
 ```
-
-## Create a `library` repository with this apax-template on GitHub
-
-Step-by-step instructions for creating & releasing `mylibrary` (case example)
-
-1. Create a repository `mylibrary` on GitHub
-
-    This repository is tailored to be in sync with your local git-repository which holds on to your actual library.
-
-    Purpose: Later people can create local clones/ forks from the repository and all its files. This repository is also the storage place for the apax-package, which other apax/npm users can install. The creation of that package is described in an other chapter.
-
-    ![newrepo](docs/images/newrepo.png)
-
-    ![reponame](docs/images/reponame.png)
-
-    - For the actual "Repository name" try to use a short name or a abbreviation.
-    - As "Description" please start with `Library for ...`.
-    - If "public" or "private" depends on internal decisions.
-
-2. Add the secrets to the repository (only in the case if it's private)
-
-    ![secrets](docs/images/secrets.png)
-
-   > You don't know the secrets? Ask one of the owners or `@sjuergen`
-
-3. Initiate your local repository
-
-   Once this is done the remote crepository on GitHub is ready to receive the library from your local Git repository.
-
-   Therefore follow the steps below on your local system by navigating to your desired project directory for the library. Open the terminal.
-
-4. If not done yet, login to the GitHub registry first
-
-    ```bash
-    apax login --registry https://npm.pkg.github.com/
-    ```
-
-    Follow the instruction and type in your credentials.
-
-    More information you'll find [here](https://github.com/simatic-ax/.github/blob/main/docs/personalaccesstoken.md)
-
-5. Create a new project based on the GitHub library apax-template
-
-    After a successful login you can follow-up with entering:
-
-    ```bash
-    apax create @simatic-ax/library --registry https://npm.pkg.github.com mylibrary
-    ```
-
-    Here: the library will be named "mylibrary" and the project-folder now is predefined with the templates contents.
-
-6. Connect the previous created remote GitHub repository to your local Git repository
-
-    A apax "create" command will always initiate a local Git repository. This one must be synced  with the "simatic-ax/mylibrary" GitHub repository now.
-
-    ```bash
-    git remote add origin git@github.com:simatic-ax/mylibrary.git
-    ```
-
-    ```bash
-    git push -u origin main
-    ```
-
-7. Install the project dependencies
-
-      ```bash
-      apax install
-      ```
-
-8. Optionally update its dependencies
-
-      ```bash
-      apax update
-      ```
-
-9. Now you can implement the library contents
-
-    Open the project-folder with AX-Code and start adjusting the files to fit your library. Consider using Git branches and frequent commits in order to keep track of your changes.
-    Don't forget to sync your local changes with the git-remote repository on GitHub at some point.
-
-### Before releasing
+## Before releasing
 
 Before you release the application example, all checks have to be done:
 
@@ -159,30 +79,9 @@ Before you release the application example, all checks have to be done:
 - [ ] Library has been reviewed
   - Create an Pull-Request for your Main-branch and add community-admins as reviewer
 
-### Release of the library
+## Release of the library
 
 Successfully releasing your library will trigger the creation of an apax-package of your current repository. Be aware of failing pipelines (GitHub workflows).
-
-Draft a new "Release"-tag within your GitHub repository
-
-- choose an appropriate version tag
-- choose an appropriate release-title
-- let github generate release-notes
-- publish release
-
-![release1](docs/images/release1.png)
-![release2](docs/images/release2.png)
-![release3](docs/images/release3.png)  
-
-## Congratulations 🐱‍🏍
-
-You finally contributed to the simatic-ax community offering apax-packages for everyone by simply using apax.
-
-KEEP GOING 🐱‍💻!
-
-> BE AWARE: Only successful GitHub workflows (pipelines) will create the package at our GitHub package-registry (scope:@simatic-ax).
-
-<Remove>
 
 ## Learn More
 
