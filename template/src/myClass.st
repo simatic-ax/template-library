@@ -1,4 +1,4 @@
-NAMESPACE apax-package-name-d7b4b031
+NAMESPACE Simatic.Ax.apax-package-name-d7b4b031
     
     CLASS MyClass
         
