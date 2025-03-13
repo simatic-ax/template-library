@@ -6,3 +6,4 @@ TestResult
 *.tgz
 assets
 /.vs
+.secrets

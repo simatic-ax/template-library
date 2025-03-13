@@ -18,8 +18,10 @@ apax add @simatic-ax/apax-package-name-d7b4b031
 Add the namespace in your ST code:
 
 ```iec-st
-Using Simatic.Ax.apax-package-name-d7b4b031;
+Using apax-package-name-d7b4b031;
 ```
+
+## Library functionality
 
 | Classes | Description         |
 |---------|---------------------|
@@ -27,24 +29,57 @@ Using Simatic.Ax.apax-package-name-d7b4b031;
 
 | Functions   | Description             |
 |-------------|-------------------------|
-| *xyz*       | *description for*xyz** |
+| *xyz*       | *description for *xyz** |
 
 | Function Blocks | Description           |
 |-----------------|-----------------------|
 | *xyz*           | *description for xyz* |
 
+## Folder structure
+```bash
+apax-package-name-d7b4b031
+    |
+    +- .github
+    |   |  # GitHub workflows for maintaining the library
+    |   |- package-development-workflow.yml
+    |   |- package-release-workflow.yml
+    |
+    +- docs
+    |   | # the place for additional user-documentation
+    |   |- MyClass.md
+    |    
+    +- snippets
+    |    | # may contain helpful snippets for using the library
+    |    |- namespacesupport.json
+    |    |- usingNamespace.json
+    |
+    +- src
+    |   | # adjust and add library src files here
+    |   |- myClass.st
+    |
+    +- test
+    |   | # adjust and add test-programs here
+    |   |- dummy.st
+    |
+    | # additional meta-information for GitHub/-workflows
+    |- .gitattributes
+    |- .gitignore
+    |
+    | # settings file for activating the renovate-bot
+    |- renovate.json
+    |
+    | # adjust the project description file / add apax-scripts
+    |- apax.yml
+    |
+    | # essential git project files, pls. adjust
+    |- CODEOWNERS
+    |- README.md
+    |- LICENSE.md #do not change!
+```
+
 ## Contribution
 
-Thanks for your interest in contributing. Anybody is free to report bugs, unclear documentation, and other problems regarding this repository in the Issues section or, even better, is free to propose any changes to this repository using Merge Requests.
-
-## Markdownlint-cli
-
-This workspace will be checked by the [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) (there is also documented ho to install the tool) tool in the CI workflow automatically.
-To avoid, that the CI workflow fails because of the markdown linter, you can check all markdown files locally by running the markdownlint with:
-
-```sh
-markdownlint **/*.md --fix
-```
+Thanks for your interest in contributing. Anybody is free to report bugs, unclear documentation, and other problems regarding this repository in the Issues section or, even better, is free to propose any changes to this repository using a pull request.
 
 ## License and Legal information
 
