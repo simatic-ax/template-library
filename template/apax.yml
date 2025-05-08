@@ -18,21 +18,19 @@ targets:
   - "llvm"
 
 # Registry information, to other npm-registries where Apax packages are located
+# '@scope': 'registry-url'
 registries:
   '@simatic-ax': 'https://npm.pkg.github.com/'
 
-# The public key to verify dependencies coming from the GitHub community
+# The public key to verify dependencies coming from the GitHub community. This ensures, that the package is
+# not tampered with.
 publicKeys:
   "@simatic-ax": "3792a7e926775425ccdd29ceed8c368c3008b5b33d7d5550b3cb1f58093e1dff"
 
-# Install settings
-installStrategy: strict
-apaxVersion: 3.4.2
-
 # Dependencies
 devDependencies:
-  '@ax/sdk': 2411.1.0
-  "@simatic-ax/snippetscollection": 1.0.0
+  '@ax/sdk': ^2504.0.0
+  "@simatic-ax/snippetscollection": ^1.0.0
 
 # Project variables
 variables:
@@ -44,5 +42,9 @@ files:
   - 'README.md'
   - 'LICENSE.md'
   - 'docs'
-  - 'src'
+  - 'bin'
   - 'snippets'
+
+# Catalog to be intalled
+catalogs:
+  "@ax/simatic-ax": ^2504.0.0
