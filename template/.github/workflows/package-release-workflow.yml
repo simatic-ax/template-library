@@ -19,6 +19,7 @@ jobs:
       APAX_TOKEN: ${{ secrets.APAX_TOKEN }}
     with:
       ref: ${{ github.event.release.target_commitish }}
+      version: ${{ github.event.release.tag_name }}
 
   release:
     name: Release the package

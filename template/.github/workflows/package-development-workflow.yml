@@ -17,6 +17,9 @@ on:
       ref:
         required: true
         type: string
+      version:
+        required: true
+        type: string
 
 permissions:
   contents: read     # required for checkout
@@ -50,6 +53,24 @@ jobs:
         with:
           immutable: true
 
+      - name: Determine version
+        id: determine_version
+        shell: bash
+        run: |
+          INPUT_VERSION="${{ inputs.version }}"
+          SHA_SHORT="${{ github.sha }}"
+          
+          if [ -z "$INPUT_VERSION" ]; then
+            echo "version=0.0.1-${SHA_SHORT}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${INPUT_VERSION}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Version the package
+        uses: simatic-ax/actions/apax-version@v3
+        with:
+          version: ${{ steps.determine_version.outputs.version }}
+          
       - name: Build source code
         uses: simatic-ax/actions/apax-build@v3
 
