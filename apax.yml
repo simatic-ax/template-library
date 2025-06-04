@@ -6,3 +6,5 @@ registries:
   '@simatic-ax': 'https://npm.pkg.github.com/'
 files:
   - 'template'
+
+  
