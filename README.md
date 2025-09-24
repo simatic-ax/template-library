@@ -22,7 +22,7 @@ apax create @simatic-ax/library --registry https://npm.pkg.github.com
         |      |- package-development-workflow.yml
         |      |- package-release-workflow.yml
         |
-        +-- template # the content that is going to be installed when using @simatic-ax/app during an apax create
+        +-- template # the content that is going to be installed when using @simatic-ax/library during an apax create
         |      |
         |      +- .github
         |      |   |  # GitHub workflows for maintaining the library
