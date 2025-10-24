@@ -7,7 +7,6 @@ on:
   push:
     branches:
       - 'main'  # runs the workflow, once new changes have been integrated to main
-      - 'main/**' # runs the workflow, once new changes have been integrated to a sub-branch of main
   pull_request:
     branches:
       - 'main' # run workflow in the scope of pull requests towards main
