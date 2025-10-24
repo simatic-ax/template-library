@@ -1,7 +1,7 @@
 # This workflow is going to be used during the development phase of the project
 name: Library development workflow
 
-oon:
+on:
   push:
     branches:
       - 'main'  # runs the workflow, once new changes have been integrated to main
