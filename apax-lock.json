@@ -1,0 +1,12 @@
+{
+  "name": "@simatic-ax/template-library",
+  "version": "0.0.0-placeholder",
+  "lockFileVersion": "2",
+  "installStrategy": "strict",
+  "root": {
+    "name": "@simatic-ax/template-library",
+    "version": "0.0.0-placeholder"
+  },
+  "packages": {},
+  "workspaces": {}
+}
