@@ -1,5 +1,6 @@
 name: '@simatic-ax/template-library'
 version: 0.0.0-placeholder
+description: "Project template for creating SIMATIC AX library repositories with proper GitHub community structure and workflows"
 type: generic
 author: Siemens AG
 registries:
