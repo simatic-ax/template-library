@@ -29,7 +29,7 @@ publicKeys:
 
 # Dependencies
 devDependencies:
-  '@ax/sdk': ^2504.0.0
+  '@ax/sdk': ^2510.0.0
   "@simatic-ax/snippetscollection": ^1.0.0
 
 # Project variables
@@ -47,4 +47,4 @@ files:
 
 # Catalog to be intalled
 catalogs:
-  "@ax/simatic-ax": ^2504.0.0
+  "@ax/simatic-ax": ^2510.0.0
