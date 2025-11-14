@@ -22,7 +22,7 @@ targets:
 registries:
   '@simatic-ax': 'https://npm.pkg.github.com/'
 
-# The public key to verify dependencies coming from the GitHub community. This ensures, that the package is
+# The public key(s) to verify dependencies. This ensures, that the package is
 # not tampered with.
 publicKeys:
   "@ax":
