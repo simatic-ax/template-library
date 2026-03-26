@@ -47,6 +47,6 @@ files:
   - 'bin'
   - 'snippets'
 
-# Catalog to be intalled
+# Catalog to be installed
 catalogs:
   "@ax/simatic-ax": ^2510.0.0
