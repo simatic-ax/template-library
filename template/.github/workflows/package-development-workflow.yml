@@ -31,7 +31,7 @@ jobs:
     name: Build and Test
     runs-on: ubuntu-24.04
     container:
-      image: ghcr.io/simatic-ax/ci-images/apax-ci-image:3.5.0
+      image: ghcr.io/simatic-ax/ci-images/apax-ci-image:4.2.1
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
@@ -42,14 +42,14 @@ jobs:
           ref: ${{ inputs.ref != '' && inputs.ref || github.ref }}
 
       - name: Login to required registries
-        uses: simatic-ax/actions/apax-login@v3
+        uses: simatic-ax/actions/apax-login@v4
         with:
           apax-token: ${{ secrets.APAX_TOKEN }}
           registries: |
             https://npm.pkg.github.com/,${{ secrets.GITHUB_TOKEN }}
 
       - name: Install dependencies
-        uses: simatic-ax/actions/apax-install@v3
+        uses: simatic-ax/actions/apax-install@v4
         with:
           immutable: true
 
@@ -67,21 +67,18 @@ jobs:
           fi
 
       - name: Version the package
-        uses: simatic-ax/actions/apax-version@v3
+        uses: simatic-ax/actions/apax-version@v4
         with:
           version: ${{ steps.determine_version.outputs.version }}
           
       - name: Build source code
-        uses: simatic-ax/actions/apax-build@v3
+        uses: simatic-ax/actions/apax-build@v4
 
       - name: Test source code
-        uses: simatic-ax/actions/apax-test@v3
+        uses: simatic-ax/actions/apax-test@v4
 
       - name: Check links
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
-        with:
-          check-modified-files-only: 'yes'
-          base-branch: 'main'
+        uses: lycheeverse/lychee-action@7da8ec1fc4e01b5a12062ac6c589c10a4ce70d67
 
       - name: Upload build artifacts
         if: ${{ github.event_name == 'workflow_call' || github.event_name == 'release'}}
@@ -90,6 +87,7 @@ jobs:
           name: build-artifacts
           path: |
             bin/1500
+            bin/s7
             bin/llvm
           retention-days: 90
           if-no-files-found: error
