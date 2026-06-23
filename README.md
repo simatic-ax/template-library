@@ -44,7 +44,7 @@ apax create @simatic-ax/library --registry https://npm.pkg.github.com
         |      |
         |      +- test
         |      |   | # adjust and add test-programs here
-        |      |   |- dummy.st
+        |      |   |- test.st
         |      |
         |      | # additional meta-information for GitHub/-workflows
         |      |- .gitattributes
