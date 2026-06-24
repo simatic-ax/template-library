@@ -41,3 +41,5 @@ jobs:
 
       - name: Check links
         uses: lycheeverse/lychee-action@v1.9.0
+        with:
+          debug: true

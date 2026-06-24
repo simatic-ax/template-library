@@ -79,6 +79,8 @@ jobs:
 
       - name: Check links
         uses: lycheeverse/lychee-action@v1.9.0
+        with:
+          debug: true
 
       - name: Upload build artifacts
         if: ${{ github.event_name == 'workflow_call' || github.event_name == 'release'}}
