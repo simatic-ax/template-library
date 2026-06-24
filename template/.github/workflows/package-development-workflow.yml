@@ -78,9 +78,7 @@ jobs:
         uses: simatic-ax/actions/apax-test@v4
 
       - name: Check links
-        uses: lycheeverse/lychee-action@v2.8.0
-        with:
-          failIfEmpty : false
+        uses: lycheeverse/lychee-action@v1.9.0
 
       - name: Upload build artifacts
         if: ${{ github.event_name == 'workflow_call' || github.event_name == 'release'}}
