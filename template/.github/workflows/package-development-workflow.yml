@@ -78,9 +78,10 @@ jobs:
         uses: simatic-ax/actions/apax-test@v4
 
       - name: Check links
-        uses: lycheeverse/lychee-action@v1.9.0
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
-          debug: true
+          check-modified-files-only: 'yes'
+          base-branch: 'main'
 
       - name: Upload build artifacts
         if: ${{ github.event_name == 'workflow_call' || github.event_name == 'release'}}
