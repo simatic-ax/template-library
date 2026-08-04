@@ -32,7 +32,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     steps: 
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # checks out the branch that has been selected during the release process
           ref: ${{ github.event.release.target_commitish }}
@@ -42,7 +42,7 @@ jobs:
         run: mkdir -p bin
 
       - name: Download build artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: build-artifacts
           path: bin
