@@ -39,11 +39,11 @@ jobs:
     steps:
       # Checkout the repository to access project files
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # Set up Python environment for the collection script
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v7
         with:
           python-version: '3.x'
       
@@ -65,7 +65,7 @@ jobs:
           
       # Upload the generated info.yml as an artifact for use in subsequent jobs
       - name: Upload info.yml
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: info-yml
           path: info.yml
@@ -78,11 +78,11 @@ jobs:
     steps:
       # Checkout repository for Excel generation scripts
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       
       # Set up Python environment for Excel generation
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v7
         with:
           python-version: '3.x'
       
@@ -93,7 +93,7 @@ jobs:
             
       # Download the info.yml artifact created in the previous job
       - name: Download info.yml
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v8
         with:
           name: info-yml
       
@@ -104,7 +104,7 @@ jobs:
 
       # Upload the generated Excel file as an artifact for download
       - name: Upload Excel artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: assessment-excel
           path: Questionnaire_Contribution_*.xlsx
@@ -125,7 +125,7 @@ jobs:
     steps:
       # Download info.yml to extract ticket information for notification
       - name: Download info.yml
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v8
         with:
           name: info-yml
 

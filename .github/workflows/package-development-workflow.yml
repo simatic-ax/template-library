@@ -34,7 +34,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     steps: 
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # either check out a provided reference, or use the reference that triggered the workflow call, e.g. a push, PR or a release
           ref: ${{ inputs.ref != '' && inputs.ref || github.ref }}
