@@ -21,17 +21,11 @@ on:
 
 permissions:
   contents: read     # required for checkout
-  packages: read     # required for pulling the SIMATIC AX container
 
 jobs:
   build-and-test:
     name: Build and Test
     runs-on: ubuntu-24.04
-    container:
-      image: ghcr.io/simatic-ax/ci-images/apax-ci-image:4.3.0
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
     steps: 
       - name: Checkout Code
         uses: actions/checkout@v7
@@ -40,7 +34,6 @@ jobs:
           ref: ${{ inputs.ref != '' && inputs.ref || github.ref }}
 
       - name: Check links
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        uses: lycheeverse/lychee-action@v2
         with:
-          check-modified-files-only: 'yes'
-          base-branch: 'main'
+          args: --no-progress './**/*.md'

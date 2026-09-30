@@ -77,12 +77,6 @@ jobs:
       - name: Test source code
         uses: simatic-ax/actions/apax-test@v4
 
-      - name: Check links
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
-        with:
-          check-modified-files-only: 'yes'
-          base-branch: 'main'
-
       - name: Upload build artifacts
         if: ${{ github.event_name == 'workflow_call' || github.event_name == 'release'}}
         uses: actions/upload-artifact@v7
@@ -94,3 +88,17 @@ jobs:
             bin/llvm
           retention-days: 90
           if-no-files-found: error
+
+  check-links:
+    name: Check links
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.ref != '' && inputs.ref || github.ref }}
+
+      - name: Check links in Markdown files
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress './**/*.md'
