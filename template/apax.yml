@@ -12,10 +12,6 @@ repository:
   type: git
   url: https://github.com/simatic-ax/apax-package-name-d7b4b031
 
-# Targets which will be compiled with 'apax build'
-targets:
-  - s7
-  - "llvm"
 
 # Registry information, to other npm-registries where Apax packages are located
 # '@scope': 'registry-url'
@@ -31,22 +27,19 @@ publicKeys:
 
 # Catalog to be installed
 catalogs:
-  "@ax/simatic-ax": ^2510.0.0
+  "@ax-as/s7-catalog": ^2610.0.0
 
 # Dependencies
 devDependencies:
-  '@ax/sdk': ^2510.0.0
+  '@ax-as/s7-sdk': ^2610.0.0
   "@simatic-ax/snippetscollection": ^1.0.0
 
-# Project variables
-variables:
-  APAX_BUILD_ARGS:
-    - '--debug'
 
 # Files, which will be shipped with the library
 files:
   - 'README.md'
   - 'LICENSE.md'
   - 'docs'
-  - 'bin'
+  - 'out/Debug/s7'
+  - 'out/Debug/llvm'
   - 'snippets'

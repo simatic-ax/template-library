@@ -72,7 +72,7 @@ jobs:
           version: ${{ steps.determine_version.outputs.version }}
           
       - name: Build source code
-        uses: simatic-ax/actions/apax-build@v4
+        uses: simatic-ax/actions/apax-make@v4
 
       - name: Test source code
         uses: simatic-ax/actions/apax-test@v4
@@ -89,8 +89,7 @@ jobs:
         with:
           name: build-artifacts
           path: |
-            bin/1500
-            bin/s7
-            bin/llvm
+            out/Debug/s7
+            out/Debug/llvm
           retention-days: 90
           if-no-files-found: error
